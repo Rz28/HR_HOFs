@@ -146,7 +146,7 @@ function odds(numbers){
 }
 
 // Summations - More Practice 
-
+//1)
 // input: array of numbers
 // output: sum of all elements multiplied by four
 
@@ -162,6 +162,7 @@ function sumByAllElementsMultipliedByFour(numbers){
     return sum;
 }
 
+//2)
 // inputs: array of numbers and a function
 // outputs: compute the sum of the array (may take multiple functions)
 //sumBy(numbers, cube);
@@ -178,16 +179,158 @@ function sumBy(numbers, f){
   var sum = 0;
   //iterate over array using each and get square of element
   each(numbers, function(el){
+      //add to the sum
       sum += f(el);
   });
-  //sum equals square of element
   //return sum
   return sum;
 }
 
-var numbers = [1,2,3,4];
+//var numbers = [1,2,3,4];
 // console.log(sumBy(numbers, square)); 
 // console.log(sumBy(numbers, cube));
 // console.log(sumBy(numbers, function(number){
 //     return number * 4;
 // }));
+
+//4)
+// input: array of numbers
+// output: product of numbers
+
+function productBy(numbers){
+    var product = 1;
+    //loop through the array of numbers using each()
+    each(numbers, function(el){
+        //add the product of the element to product variable
+        product *= el;
+    });
+    //return product
+    return product;
+}
+//console.log(productBy([1,2,3,4]));
+
+//Advanced
+//1)
+// input: array of numbers
+// output: array of numbers (numbers must be doubled)
+function doubleAll(numbers){
+    //create a new array
+    var double = [];
+    //loop through each element in array
+    each(numbers, function(el){
+        //push the double element into array
+        double.push(el + el);
+    });
+    //return array
+    return double;
+}
+//console.log(doubleAll([2,3,5,10, 7]));
+
+//2)
+// input: array numbers
+// output: array of numbers halved (devided by two)
+function halveAll(numbers){
+    var halved = [];
+    //loop through elements using each()
+    each(numbers, function(el){
+        //push ele devided by 2
+        halved.push(el / 2);
+    });
+    //return halved array
+    return halved;
+}
+//console.log(halveAll([4,10,15,50]));
+
+//3
+// input: array of strings
+// output: array of string transformed to upper case
+function uppercaseAll(arr){
+    //create new array toUpperCase
+    var stringsToUpperCase = [];
+    //iterate over each string in array
+    each(arr, function(string){
+        //convert el to uppercase and push to array
+        stringsToUpperCase.push(string.toUpperCase());
+    });
+    //return array
+    return stringsToUpperCase;
+}
+//console.log(uppercaseAll(['hello', 'string', 'my test']));
+
+//5
+// input: two parameters: array and a function ()
+// output: array of all elements in the input array transformed using the input function
+
+function map(array, f){
+    //create var for transformed array
+    var transformed = [];
+    //loop through the element
+    each(array, function(element, index){
+        //push the value from the parameter function (f) to transformed array
+        transformed.push(f(element));
+    });
+    //return transformed array
+    return transformed;
+}
+
+// console.log(map([1,2,3,4], function(x){
+//     return x * 2;
+// }));
+
+//6
+// 1)
+// input: map(['hello', 'world'], ???)
+// output: array of words transformed to upperCase
+// console.log(map(['hello', 'world'], function(ele){
+//     return ele.toUpperCase();
+// }));
+
+// 2)
+// console.log(map(['HelLo', 'WorLD'], function(element){
+//     return element.toLowerCase();
+// }));
+
+// 3)
+// console.log(map(['the', 'quick', 'brown', 'fox', 'jumped'], function(element){
+//     return element.length;
+// }));
+
+// 4)
+var people = [
+    {name: 'Alyssa P. Hacker', age: 26},
+    {name: 'Ben Bitdiddle', age: 34},
+    {name: 'Eva Lu Ator', age: 19},
+    {name: 'Lem E. Tweakit', age: 40}
+];
+
+// console.log(map(people, function(person){
+//     return person.name;
+// }));
+
+// 5
+// console.log(map(people, function(person){
+//     return `${person.name} is ${person.age}`;
+// }));
+
+// Finding Patterns: Filtering
+
+// 1)
+// input: array of numbers
+// output: array of even numbers
+
+function evens(numbers){
+    //create emmpty array of evenNumbers
+    var isEven = []
+    //loop through array of numbers
+    each(numbers, function(num){
+        //determine if number is even
+        if(num % 2 === 0){
+            //push to array 
+            isEven.push(num);
+        }
+    });
+    //return evenNumbers
+    return isEven;
+}
+
+console.log(evens([2,4,6,10,11]));
