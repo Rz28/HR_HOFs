@@ -164,10 +164,30 @@ function sumByAllElementsMultipliedByFour(numbers){
 
 // inputs: array of numbers and a function
 // outputs: compute the sum of the array (may take multiple functions)
+//sumBy(numbers, cube);
+var cube = function (num){
+    return num * num * num;
+}
 
-function sumBy(numbers, func){
+var square = function(num){
+    return num * num;
+}
 
+function sumBy(numbers, f){
+  //initialize a variable at 0
+  var sum = 0;
+  //iterate over array using each and get square of element
+  each(numbers, function(el){
+      sum += f(el);
+  });
+  //sum equals square of element
+  //return sum
+  return sum;
 }
 
 var numbers = [1,2,3,4];
-//sumBy(numbers, square)
+// console.log(sumBy(numbers, square)); 
+// console.log(sumBy(numbers, cube));
+// console.log(sumBy(numbers, function(number){
+//     return number * 4;
+// }));
