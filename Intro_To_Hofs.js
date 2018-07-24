@@ -333,4 +333,125 @@ function evens(numbers){
     return isEven;
 }
 
-console.log(evens([2,4,6,10,11]));
+// console.log(evens([2,4,6,10,11]));
+
+// 2)
+//intput: array of numbers
+// output: returns array of only numbers multiples of 3
+
+function multiplesOfThree(numbers){
+    //create empty array isMultiplesOfThree
+    var isMultiplesOfThree = [];
+    //loop through the numbers array
+    each(numbers, function(num){
+        //determine if element is multiple of three
+        if(num % 3 === 0){
+            //push element into array
+            isMultiplesOfThree.push(num);
+        }
+    });
+    //return array
+    return isMultiplesOfThree
+}
+//console.log(multiplesOfThree([1,3,4,5,6,10,9,32,21]))
+
+// 3)
+// input: array of numbers
+// output: array of only positive numbers
+
+function positives(numbers){
+    //create isPositive empty array
+    var isPositive = [];
+    //loop through array of numbers
+    each(numbers, function(num){
+        //determine if num is positive
+        if(num > 0){
+          //push num into isPositive array
+          isPositive.push(num);
+        }
+    });
+    //return array
+    return isPositive;
+}
+//console.log(positives([-1,2,-3,-9,10,0]))
+
+// 4)
+// input: array of strings
+// output: array of string with an even length
+
+function evenLength(arr){
+    //create isEvenLength empty array
+    var isEvenLength = [];
+    //loop through the string array
+    each(arr, function(string){
+        //if the string leght is even
+        if(string.length % 2 === 0){
+            //push the string to array
+            isEvenLength.push(string);
+        }
+    });
+    //return isEvenLength
+    return isEvenLength;
+}
+
+//console.log(evenLength(['test','the','four', 'ten', 'something']))
+
+// 5)
+// input: two parameters: array and function (when invoked with an argument, returns true or false)
+// output: return New array of only elements which the function returns true
+
+
+function filter(coll, f){
+    //create true accu
+    var isTrue = [];
+    each(coll, function(element, index ){
+        if(f(element) === true){
+            isTrue.push(element);
+        }
+    });
+    return isTrue;
+}
+
+// console.log(filter([1,2,3,4], function(x){
+//     return x % 2 === 0;
+// }));
+
+// 6) use filter to write/rewrite
+// 1)
+// input: array of numbers
+// output: filtered array with odd numbers
+
+// console.log(filter([1,2,3,4,5], function(x){
+//     return x % 2 === 1;
+// }));
+
+// console.log(filter([-2,4,-10,3,5,6], function(x){
+//     return x > 0;
+// }));
+
+// console.log(filter([0,-4,3,-1,10,-3], function(x){
+//     return x < 0;
+// }));
+
+// console.log(filter(['hello', 'width', 'why', 'test'], function(string){
+//     return string.length % 2 === 0;
+// }));
+
+// console.log(filter([4, 2, 6, 10, 11, 42, -1, 2], function(num){
+//     return num > 6;
+// }));
+
+// 7)
+// input: two parameters (array of string, and a character)
+// output: array of ONLY the strings that start with the character
+
+function startsWithChar(string, char){
+  //use filter to determine if string starts with char
+  return filter(string, function(char){
+      return char.startsWith(char);
+  });
+}
+
+var words = "the quick brown fox jumps over the lazy dog".split(" ");
+console.log(startsWithChar(words, "q")); // => ["quick"]
+startsWithChar(words, "t"); // => ["the", "the"]
