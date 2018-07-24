@@ -333,66 +333,27 @@ function evens(numbers){
     return isEven;
 }
 
-// console.log(evens([2,4,6,10,11]));
+//console.log(evens([2,4,6,10,11]));
 
 // 2)
-//intput: array of numbers
-// output: returns array of only numbers multiples of 3
+// input: array of numbers
+// output: array of only the numbers multiples of 3
 
 function multiplesOfThree(numbers){
-    //create empty array isMultiplesOfThree
-    var isMultiplesOfThree = [];
-    //loop through the numbers array
+    //create empty isMultipleOfThree
+    var isMultipleOfThree = [];
+    //loop through the array of numbers with each
     each(numbers, function(num){
-        //determine if element is multiple of three
+        //if element is multiple of 3
         if(num % 3 === 0){
-            //push element into array
-            isMultiplesOfThree.push(num);
+              //push into isMultipleOfThree array
+              isMultipleOfThree.push(num);
         }
     });
-    //return array
-    return isMultiplesOfThree
+    //return isMultipleOfThree
+    return isMultipleOfThree;
 }
-//console.log(multiplesOfThree([1,3,4,5,6,10,9,32,21]))
-
-// 3)
-// input: array of numbers
-// output: array of only positive numbers
-
-function positives(numbers){
-    //create isPositive empty array
-    var isPositive = [];
-    //loop through array of numbers
-    each(numbers, function(num){
-        //determine if num is positive
-        if(num > 0){
-          //push num into isPositive array
-          isPositive.push(num);
-        }
-    });
-    //return array
-    return isPositive;
-}
-//console.log(positives([-1,2,-3,-9,10,0]))
-
-// 4)
-// input: array of strings
-// output: array of string with an even length
-
-function evenLength(arr){
-    //create isEvenLength empty array
-    var isEvenLength = [];
-    //loop through the string array
-    each(arr, function(string){
-        //if the string leght is even
-        if(string.length % 2 === 0){
-            //push the string to array
-            isEvenLength.push(string);
-        }
-    });
-    //return isEvenLength
-    return isEvenLength;
-}
+<<<<<<< HEAD
 
 //console.log(evenLength(['test','the','four', 'ten', 'something']))
 
@@ -456,3 +417,7 @@ var words = "the quick brown fox jumps over the lazy dog".split(" ");
 console.log(startsWithChar(words, "q")); // => ["quick"]
 startsWithChar(words, "t"); // => ["the", "the"]
 var test = 0;
+=======
+//console.log(multiplesOfThree([1,3,5,6,10,9, 14,4,12, 21,23,25,24,30,11,33,,45,27]))
+var test = 12;
+>>>>>>> e1b97137ad61f4f410138a37282ecacac33507d7
