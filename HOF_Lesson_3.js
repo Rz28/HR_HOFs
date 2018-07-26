@@ -197,12 +197,81 @@ function pluck(array, string){
 //     {name: {first: "Louis", last: "Reasoner"}, age: 21}
 //   ];
 
-function parseCSV(string){
-    //split string
-    console.log(string.split(' '));
-}
-console.log(parseCSV("Alyssa,P.,Hacker,26\nBen,,Bitdiddle,34\nEva,Lu,Ator,40\nLem,E.,Tweakit,45\nLouis,,Reasoner,21"))
 
+
+
+// Exercises - Map Objects
+
+function each(coll, f) {
+    if (Array.isArray(coll)) {
+      for (var i = 0; i < coll.length; i++) {
+        f(coll[i], i);
+      }
+    } else {
+      for (var key in coll) {
+        f(coll[key], key);
+      }
+    }
+  }
+  
+  function map(coll, f) {
+    var acc = [];
+    if (!Array.isArray(coll)) {
+      acc = {};
+    }
+    each(coll, function(element, key) {
+      acc[key] = f(element, key);
+    });
+    return acc;
+  }
+
+
+// 1)
+// input: obj
+// output: new obj with numeric values increased by 1
+function incrementValues (obj){
+    //map through the obj
+    return map(obj, function(element, key){
+        if(typeof element === 'number'){
+            return element = element + 1;
+        }
+            return element;
+    });
+}
+//
+// 2)
+// input: obj
+// output: obj with string values to upperCase
+function upperCaseValues(obj){
+    //loop through obj with map
+    return map(obj, function(value, key){
+        //if value is string
+        if(typeof value === 'string'){
+            //change string to upperCase
+            return value.toUpperCase();
+        }else
+          // return unchanged value
+          return value;
+
+    });
+}
+//console.log(upperCaseValues({name: "Annyeong", age: 25, favoriteColor: "blue"}));
+
+// 3)
+// input: obj whose values are also objects
+// output: returns obj containing the count of keys in each nested obj
+function countNestedKeys (obj){
+    //initalize count
+    var count = 0;
+    //loop through obj with map
+    return map(obj, function(value, key){
+        //value of key should be number of value keys inside obj
+        return value = Object.keys(value).length;
+         //return value
+    },);
+}
+console.log(countNestedKeys({a: {b: 1, c: 7}, f: {h: 22, g: 12, i: 24}}));
+// => {a: 2, f: 3}
 
 
 
@@ -227,57 +296,3 @@ function makeEven(array){
     //return acc
     return acc;
 }
-//console.log(makeEven(numbers));
-// function makeEven(array){
-//     //lop through array using map
-//     return map(array, function(number){
-//         if(number % 2 === 1){
-//             return number + 1;
-//         } else {
-//             return number;
-//         }
-//     });
-// }
-
-
-// // inputs: array of numbers
-// // outpus: new array of numbers where each element is squared
-// // function squareElement(arr){
-// //   //declare acc as empty array
-// //   var acc = [];
-// //   //loop through the array
-// //   for(var i = 0; i < arr.length; i++){
-// //       //push to acc element * element
-// //       var ele = arr[i];
-// //       acc.push(ele * ele);
-// //   }
-// //   return acc;
-// // }
-
-// function squareElement(arr){
-//     var acc = [];
-//     each(arr, function(ele){
-//         acc.push(ele * ele);
-//     });
-//     return acc;
-// }
-
-// //input: array and transformer
-// //output: new array (array with transformation applied)
-// function map(arr, transformer){
-//   var acc = [];
-//   each(arr, function(element, i){
-//       //push to acc transformed element
-//     acc.push(transformer(element, i));
-// });
-//   return acc;
-// }
-
-// function squaredElement(arr){
-//     //return the new array created by map
-//    return map(arr, function(ele){
-//         return ele* ele;
-//     });
-// }
-
-// console.log(squaredElement([1,2,3]));
