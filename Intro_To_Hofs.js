@@ -353,7 +353,6 @@ function multiplesOfThree(numbers){
     //return isMultipleOfThree
     return isMultipleOfThree;
 }
-<<<<<<< HEAD
 
 //console.log(evenLength(['test','the','four', 'ten', 'something']))
 
@@ -417,7 +416,3 @@ var words = "the quick brown fox jumps over the lazy dog".split(" ");
 console.log(startsWithChar(words, "q")); // => ["quick"]
 startsWithChar(words, "t"); // => ["the", "the"]
 var test = 0;
-=======
-//console.log(multiplesOfThree([1,3,5,6,10,9, 14,4,12, 21,23,25,24,30,11,33,,45,27]))
-var test = 12;
->>>>>>> e1b97137ad61f4f410138a37282ecacac33507d7
