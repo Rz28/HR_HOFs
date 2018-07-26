@@ -414,11 +414,6 @@ function startsWithChar(string, char){
 
 var words = "the quick brown fox jumps over the lazy dog".split(" ");
 console.log(startsWithChar(words, "q")); // => ["quick"]
-<<<<<<< HEAD
-startsWithChar(words, "t"); // => ["the", "the"]
-var test = 0;
-=======
 console.log(startsWithChar(words, "t")); // => ["the", "the"]
 
 
->>>>>>> 0f7babf6d2ac43facb8e94973170cd1ccf7317e8
